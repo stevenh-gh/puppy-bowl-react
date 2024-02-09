@@ -14,3 +14,44 @@ export async function get()
 		console.log(error);
 	}
 }
+
+export async function post(name, breed, img, status)
+{
+	try
+	{
+		const res = await fetch(`${baseUrl}/${cohort}/players`, {
+			method: "post",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				name: name,
+				breed: breed,
+				imgUrl: img,
+				// status: status,
+			}),
+		});
+		const result = await res.json();
+		return result;
+	}
+	catch (error)
+	{
+		console.log(error);
+	}
+}
+
+export async function deleteRequest(id)
+{
+	try
+	{
+		const res = await fetch(`${baseUrl}/${cohort}/players/${id}`, {
+			method: "delete",
+		});
+		const result = await res.json();
+		return result;
+	}
+	catch (error)
+	{
+		console.log(error);
+	}
+}

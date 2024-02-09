@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { get } from "../api";
+import Player from "./Player";
 
-function Puppies()
+function Puppies({ renderCount, setRenderCount })
 {
 	const [puppyPlayers, setPuppyPlayers] = useState([]);
 
@@ -14,13 +15,17 @@ function Puppies()
 			setPuppyPlayers(data.data.players);
 		}
 		getPuppyPlayers();
-	}, []);
+	}, [renderCount]);
 
 	return (
-		<div>
-			{puppyPlayers.map((player) =>
+		<div className="grid">
+			{puppyPlayers.map(player =>
 			{
-				return <div>{player.name}</div>;
+				return (
+					<div key={player.id} className="grid-child">
+						<Player player={player} renderCount={renderCount} setRenderCount={setRenderCount} />
+					</div>
+				);
 			})}
 		</div>
 	);

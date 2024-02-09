@@ -1,6 +1,6 @@
 function Header()
 {
-	return <div>Steven H. Puppy Bowl</div>;
+	return <h1>Steven H. Puppy Bowl</h1>;
 }
 
 export default Header;
