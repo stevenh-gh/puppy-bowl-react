@@ -67,6 +67,10 @@ form>button {
   grid-column-start: span 2;
 }
 
+form>label {
+  text-align: left;
+}
+
 .player-name {
   display: flex;
   justify-content: center;
