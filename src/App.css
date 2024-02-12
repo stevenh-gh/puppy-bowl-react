@@ -79,3 +79,11 @@ form>label {
 .player-name>span {
   cursor: pointer;
 }
+
+.details {
+  text-align: left;
+}
+
+.details-button {
+  text-align: center;
+}

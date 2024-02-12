@@ -8,6 +8,15 @@ function Details()
 	const [player, setPlayer] = useState({});
 	const navigate = useNavigate();
 
+	function showTeamMembers()
+	{
+		return player.team.players.filter((player) => player.id !== Number(id)).map((player) => (
+			<div key={player.id}>
+				<Link to={`/player/${player.id}`}>{player.name}</Link>
+			</div>
+		));
+	}
+
 	useEffect(() =>
 	{
 		async function getPlayer()
@@ -23,21 +32,23 @@ function Details()
 	}, [id]);
 
 	return (
-		<>
+		<div className="details">
 			<img src={player.imageUrl} width={200} alt="" />
 			<h1>{player.name}</h1>
 			<h3>Player ID: {player.id}</h3>
 			<h3>Breed: {player.breed}</h3>
 			<h3>Status: {player.status}</h3>
 			{player.team && <h3>Team name: {player.team.name}</h3>}
-			{player.team
-				&& player.team.players.filter((player) => player.id !== Number(id)).map((player) => (
-					<div>
-						<Link key={player.id} to={`/player/${player.id}`}>{player.name}</Link>
-					</div>
-				))}
-			<button onClick={() => navigate(-1)}>Back</button>
-		</>
+			{player.team && (
+				<>
+					<h3>Team members:</h3>
+					{showTeamMembers()}
+				</>
+			)}
+			<div className="details-button">
+				<button onClick={() => navigate(-1)}>Back</button>
+			</div>
+		</div>
 	);
 }
 
