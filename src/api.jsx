@@ -15,6 +15,20 @@ export async function get()
 	}
 }
 
+export async function getId(id)
+{
+	try
+	{
+		const res = await fetch(`${baseUrl}/${cohort}/players/${id}`);
+		const result = await res.json();
+		return result;
+	}
+	catch (error)
+	{
+		console.log(error);
+	}
+}
+
 export async function post(name, breed, img, status)
 {
 	try

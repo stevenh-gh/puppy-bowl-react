@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { deleteRequest } from "../api";
 
 function Player({ player, renderCount, setRenderCount })
 {
 	const [show, setShow] = useState(false);
+	const navigate = useNavigate();
 
 	async function deletePlayer(id)
 	{
@@ -29,6 +31,7 @@ function Player({ player, renderCount, setRenderCount })
 				</>
 			)}
 			<button onClick={() => setShow(!show)}>{show ? "Show less" : "Show more"}</button>
+			<button onClick={() => navigate(`/player/${player.id}`)}>More details</button>
 		</>
 	);
 }
