@@ -31,7 +31,7 @@ function Puppies({ renderCount, setRenderCount, searchContents })
 
 	function renderSearchResults()
 	{
-		return puppyPlayers.filter(player => player.name.toLowerCase() === searchContents.toLowerCase()).map(player =>
+		return puppyPlayers.filter(player => player.name.toLowerCase().includes(searchContents.toLowerCase())).map(player =>
 		{
 			return (
 				<div key={player.id} className="grid-child">
