@@ -78,6 +78,7 @@ form>label {
 
 .player-name>span {
   cursor: pointer;
+  margin-left: 5px;
 }
 
 .details {
