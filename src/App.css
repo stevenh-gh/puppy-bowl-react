@@ -89,3 +89,8 @@ form>label {
 .details-button {
   text-align: center;
 }
+
+.searchbar {
+  display: block;
+  margin: auto;
+}

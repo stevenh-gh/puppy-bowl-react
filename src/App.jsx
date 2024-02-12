@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import Header from "./components/Header";
@@ -12,21 +12,12 @@ function App()
 	const [showSearch, setShowSearch] = useState(false);
 	const [searchContents, setSearchContents] = useState("");
 
-	useEffect(() =>
-	{
-		if (!showSearch)
-		{
-			setSearchContents("");
-		}
-	}, [showSearch]);
-
 	return (
 		<>
 			<Navbar />
 			<Header />
 			<Form renderCount={renderCount} setRenderCount={setRenderCount} />
-			<button onClick={() => setShowSearch(!showSearch)}>{showSearch ? "Collapse search" : "Show search"}</button>
-			{showSearch && <SearchBar setSearchContents={setSearchContents} />}
+			{<SearchBar showSearch={showSearch} setShowSearch={setShowSearch} setSearchContents={setSearchContents} />}
 			<Puppies renderCount={renderCount} setRenderCount={setRenderCount} searchContents={searchContents} />
 		</>
 	);
