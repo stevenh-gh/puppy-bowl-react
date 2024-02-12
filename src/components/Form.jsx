@@ -15,6 +15,10 @@ function Form({ renderCount, setRenderCount })
 		{
 			setRenderCount(renderCount + 1);
 		}
+
+		e.target.name.value = "";
+		e.target.breed.value = "";
+		e.target.img.value = "";
 	}
 
 	return (
