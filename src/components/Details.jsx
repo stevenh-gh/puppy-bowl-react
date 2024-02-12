@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getId } from "../api";
+import Navbar from "./Navbar";
 
 function Details()
 {
@@ -32,23 +33,26 @@ function Details()
 	}, [id]);
 
 	return (
-		<div className="details">
-			<img src={player.imageUrl} width={200} alt="" />
-			<h1>{player.name}</h1>
-			<h3>Player ID: {player.id}</h3>
-			<h3>Breed: {player.breed}</h3>
-			<h3>Status: {player.status}</h3>
-			{player.team && <h3>Team name: {player.team.name}</h3>}
-			{player.team && (
-				<>
-					<h3>Team members:</h3>
-					{showTeamMembers()}
-				</>
-			)}
-			<div className="details-button">
-				<button onClick={() => navigate(-1)}>Back</button>
+		<>
+			<Navbar />
+			<div className="details">
+				<img src={player.imageUrl} width={200} alt="" />
+				<h1>{player.name}</h1>
+				<h3>Player ID: {player.id}</h3>
+				<h3>Breed: {player.breed}</h3>
+				<h3>Status: {player.status}</h3>
+				{player.team && <h3>Team name: {player.team.name}</h3>}
+				{player.team && (
+					<>
+						<h3>Team members:</h3>
+						{showTeamMembers()}
+					</>
+				)}
+				<div className="details-button">
+					<button onClick={() => navigate(-1)}>Back</button>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 }
 
