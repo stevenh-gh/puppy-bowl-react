@@ -90,7 +90,18 @@ form>label {
   text-align: center;
 }
 
+.search {
+  margin-bottom: 20px;
+}
+
 .searchbar {
   display: block;
+  width: 50%;
+  height: 30px;
   margin: auto;
+  border-radius: 5px;
+}
+
+.searchdiv {
+  padding: 20px 20px 0 20px;
 }

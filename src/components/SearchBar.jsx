@@ -11,9 +11,18 @@ function SearchBar({ showSearch, setShowSearch, setSearchContents })
 	}, [showSearch]);
 
 	return (
-		<div>
+		<div className="search">
 			<button onClick={() => setShowSearch(!showSearch)}>{showSearch ? "Collapse search" : "Show search"}</button>
-			{showSearch && <input className="searchbar" onChange={e => setSearchContents(e.target.value)} type="text" />}
+			{showSearch && (
+				<div className="searchdiv">
+					<input
+						placeholder="Search here..."
+						className="searchbar"
+						onChange={e => setSearchContents(e.target.value)}
+						type="text"
+					/>
+				</div>
+			)}
 		</div>
 	);
 }
